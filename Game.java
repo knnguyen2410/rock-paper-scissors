@@ -161,14 +161,20 @@ public class Game {
         return computerAnswer;
     }
 
-
-
-
-
+    /**
+     * The playHuman method uses the results of the getPlayerAnswer method twice (once for each player).
+     * It takes the two Strings and passes them as arguments for the compareAnswers method.
+     */
     public static void playHuman(){
         gameInstructions(); // Shows the player the game instructions first
 
-        getPlayerAnswer();
+        String player1Answer = getPlayerAnswer(); // This first user input is player 1's answer
+        System.out.println(player1Answer);
+
+        String player2Answer = getPlayerAnswer(); // This second user input is player 2's answer
+        System.out.println(player2Answer);
+
+        compareAnswers(player1Answer, player2Answer); // Compares both inputs to determine winner
     }
 
     /**
@@ -199,11 +205,11 @@ public class Game {
         return userAnswer;
     }
 
-
-
-
-
     public static void gameHistory() {
+
+
+
+
 
     }
 
