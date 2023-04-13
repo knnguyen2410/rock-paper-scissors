@@ -93,11 +93,14 @@ public class Game {
         );
     }
 
+
     /**
-     *     The compareAnswers method uses if-else statements to determine the win condition of each round.
+     *     The determineWinner method takes in two strings,
+     *     and uses if-else statements to determine the win condition of each round.
+     *     It prints out which player won.
      *     After each round, the player is taken back to the main menu.
      */
-    public static void compareAnswers(String answer1, String answer2){
+    public static void determineWinner(String answer1, String answer2){
         System.out.println("Player 1 Chose: " + answer1);
         System.out.println("Player 2 Chose: " + answer2);
 
@@ -126,6 +129,7 @@ public class Game {
         mainMenu(); // Returns to main menu after every round
     }
 
+
     /**
      * The playComputer method uses the results of the getPlayerAnswer and getComputerAnswer methods.
      * It takes the two Strings and passes them as arguments for the compareAnswers method.
@@ -139,7 +143,7 @@ public class Game {
         String computerAnswer = getComputerAnswer(); // This is the randomly-generated computer answer
         System.out.println(computerAnswer);
 
-        compareAnswers(playerAnswer, computerAnswer); // Compares user and computer inputs to determine winner
+        determineWinner(playerAnswer, computerAnswer); // Compares user and computer inputs to determine winner
     }
 
     /**
@@ -161,6 +165,7 @@ public class Game {
         return computerAnswer;
     }
 
+
     /**
      * The playHuman method uses the results of the getPlayerAnswer method twice (once for each player).
      * It takes the two Strings and passes them as arguments for the compareAnswers method.
@@ -174,7 +179,7 @@ public class Game {
         String player2Answer = getPlayerAnswer(); // This second user input is player 2's answer
         System.out.println(player2Answer);
 
-        compareAnswers(player1Answer, player2Answer); // Compares both inputs to determine winner
+        determineWinner(player1Answer, player2Answer); // Compares both inputs to determine winner
     }
 
     /**
@@ -205,12 +210,8 @@ public class Game {
         return userAnswer;
     }
 
+
     public static void gameHistory() {
-
-
-
-
-
     }
 
     /**
