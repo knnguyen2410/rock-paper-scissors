@@ -1,8 +1,5 @@
 import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
     public static void main(String[] args) {
@@ -60,7 +57,7 @@ public class Game {
      * Depending on the input, the user can play against another human using the same computer, or play against a computer.
      */
     public static void gameMode() {
-        System.out.println("You are Player 1." + "\n" + "Is Player 2 a Human or Computer?");
+        System.out.println("You are Player 1. Is Player 2 a Human or Computer?");
 
         Scanner userInput = new Scanner(System.in); // Create Scanner object
         System.out.println("Player 2 is a: "); // Prompt user for input
@@ -93,7 +90,6 @@ public class Game {
         );
     }
 
-
     /**
      *     The determineWinner method takes in two strings,
      *     and uses if-else statements to determine the win condition of each round.
@@ -101,9 +97,6 @@ public class Game {
      *     After each round, the player is taken back to the main menu.
      */
     public static void determineWinner(String answer1, String answer2){
-        System.out.println("Player 1 Chose: " + answer1);
-        System.out.println("Player 2 Chose: " + answer2);
-
         if (answer1.equals(answer2)){
             System.out.println("It's a tie!");
         } else if (answer1.equals("rock")){
@@ -129,7 +122,6 @@ public class Game {
         mainMenu(); // Returns to main menu after every round
     }
 
-
     /**
      * The playComputer method uses the results of the getPlayerAnswer and getComputerAnswer methods.
      * It takes the two Strings and passes them as arguments for the compareAnswers method.
@@ -137,34 +129,19 @@ public class Game {
     public static void playComputer(){
         gameInstructions(); // Shows the player the game instructions first
 
-        String playerAnswer = getPlayerAnswer(); // This is the user's input
-        System.out.println(playerAnswer);
+        List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
+        Human player1 = new Human("", 0, player1Moves);  // Create player 1 instance
+        String player1Answer = player1.getManualAnswer(); // Get player 1's answer
+        goToMainMenu(player1Answer);
 
-        String computerAnswer = getComputerAnswer(); // This is the randomly-generated computer answer
-        System.out.println(computerAnswer);
+        List<String> computerMoves = new ArrayList<>(); // Initialize an empty moves list for computer
+        Computer computerPlayer = new Computer("", 0, computerMoves); // Create instance of Computer class
+        String computerAnswer = computerPlayer.getRandomAnswer(); // This is the randomly-generated computer answer
 
-        determineWinner(playerAnswer, computerAnswer); // Compares user and computer inputs to determine winner
+        System.out.println("Player 1 chose: " + player1Answer);
+        System.out.println("Player 2 chose: " + computerAnswer + " (Computer)");
+        determineWinner(player1Answer, computerAnswer); // Compares user and computer inputs to determine winner
     }
-
-    /**
-     * The getComputerAnswer method uses a random number generator which acts as the computer's input.
-     * The method generates a number from 0-2, and each number corresponds to a different rock/paper/scissors move for the computer.
-     * The resulting string is then returned.
-     */
-    public static String getComputerAnswer() {
-        Random randomInstance = new Random(); // Create a new instance of the random class
-        int randomNumber = randomInstance.nextInt(3); // Generates random integer from 0-2
-        String computerAnswer = "";
-        if (randomNumber == 0) { // Computer answer updates based on random number generated
-            computerAnswer = "rock";
-        } else if (randomNumber == 1) {
-            computerAnswer = "paper";
-        } else {
-            computerAnswer = "scissors";
-        }
-        return computerAnswer;
-    }
-
 
     /**
      * The playHuman method uses the results of the getPlayerAnswer method twice (once for each player).
@@ -173,43 +150,33 @@ public class Game {
     public static void playHuman(){
         gameInstructions(); // Shows the player the game instructions first
 
-        String player1Answer = getPlayerAnswer(); // This first user input is player 1's answer
-        System.out.println(player1Answer);
+        List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
+        Human player1 = new Human("", 0, player1Moves);  // Create player 1 instance
 
-        String player2Answer = getPlayerAnswer(); // This second user input is player 2's answer
-        System.out.println(player2Answer);
+        List<String> player2Moves = new ArrayList<>(); // Initialize an empty moves list for player2
+        Human player2 = new Human("", 0, player2Moves); // Create player 2 instance
+
+        String player1Answer = player1.getManualAnswer(); // Get player 1's answer
+        System.out.println("Player 1 chose: " + player1Answer);
+        goToMainMenu(player1Answer); // Goes to main menu if a player types quit
+
+        String player2Answer = player2.getManualAnswer(); // Get player 2's answer
+        System.out.println("Player 2 chose: " + player2Answer);
+        goToMainMenu(player2Answer); // Goes to main menu if a player types quit
 
         determineWinner(player1Answer, player2Answer); // Compares both inputs to determine winner
     }
 
     /**
-     * The getPlayerAnswer method obtains a user's input using a Scanner object.
-     * The user's input is formatted so that all letters are lowercase.
-     * If the user's input is not a valid answer from the validAnswer list, the user is prompted to enter a different input.
-     * Depending on the input, the user is either taken back to the main menu, or the method returns the user input string.
+     * The goToMainMenu method calls on the mainMenu method if the string parameter is "quit".
+     * @param answer
      */
-    public static String getPlayerAnswer() {
-
-        Scanner userInput = new Scanner(System.in); // Create Scanner object
-        System.out.println("Enter Your Answer: "); // Prompt user for input
-        String userAnswer = userInput.nextLine().toLowerCase(); // Formats user's input and assigns it to variable
-
-        List validAnswers = Arrays.asList("rock", "paper", "scissors", "quit");
-
-        while (!validAnswers.contains(userAnswer)) { // Prompt user for different input if it's not a valid answer
-            System.out.println("Enter A Different Answer: ");
-            userAnswer = userInput.nextLine().toLowerCase();
-        }
-
-        // Calls upon different methods depending on user input
-        if (userAnswer.equals("quit")) {
+    public static void goToMainMenu(String answer){
+        if (answer.equals("quit")) {
             System.out.println("You chose quit. Go to the main menu.");
             mainMenu();
         }
-
-        return userAnswer;
     }
-
 
     public static void gameHistory() {
     }
