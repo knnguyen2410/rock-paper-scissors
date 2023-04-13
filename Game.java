@@ -4,9 +4,9 @@ import java.util.*;
 public class Game {
 
     // Create empty array lists for each player's result at the end of each round
-    static List<String> player1Result = new ArrayList<>(); // Initialize an empty moves list for player1
-    static List<String> player2Result = new ArrayList<>(); // Initialize an empty moves list for player2
-    static List<String> computerResult = new ArrayList<>(); // Initialize an empty moves list for computer
+    static List<String> player1Result = new ArrayList<>(); // Initialize an empty results list for player1
+    static List<String> player2Result = new ArrayList<>(); // Initialize an empty results list for player2
+    static List<String> computerResult = new ArrayList<>(); // Initialize an empty results list for computer
 
     // Create empty array lists for each player's moves
     static List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
@@ -153,10 +153,6 @@ public class Game {
         player1Moves.add(player1Answer);
         player2Moves.add(player2Answer);
         computerMoves.add(computerAnswer);
-
-        System.out.println(player1Moves);
-        System.out.println(player2Moves);
-        System.out.println(computerMoves);
     }
 
     /**
@@ -169,44 +165,58 @@ public class Game {
         if (player1Answer.equals(computerAnswer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
+            player1Result.add("Tie");
+            player2Result.add("N/A");
+            computerResult.add("Tie");
         } else if (player1Answer.equals("rock")){
             if (computerAnswer.equals("paper")){
                 System.out.println("Player 2 wins!");
                 computerPoints = computerPoints + 1;
                 computerPlayer.setPoints(computerPoints);
+                player1Result.add("Lose");
+                player2Result.add("N/A");
+                computerResult.add("Win");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("N/A");
+                computerResult.add("Lose");
             }
         } else if (player1Answer.equals("paper")) {
             if (computerAnswer.equals("scissors")){
                 System.out.println("Player 2 wins!");
                 computerPoints = computerPoints + 1;
                 computerPlayer.setPoints(computerPoints);
+                player1Result.add("Lose");
+                player2Result.add("N/A");
+                computerResult.add("Win");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("N/A");
+                computerResult.add("Lose");
             }
         } else if (player1Answer.equals("scissors")){
             if (computerAnswer.equals("rock")){
                 System.out.println("Player 2 wins!");
                 computerPoints = computerPoints + 1;
                 computerPlayer.setPoints(computerPoints);
+                player1Result.add("Lose");
+                player2Result.add("N/A");
+                computerResult.add("Win");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("N/A");
+                computerResult.add("Lose");
             }
         }
-
-        System.out.println("\n");
-        System.out.println("Number of ties: " + tiePoints);
-        System.out.println("Player 1 Points: " + player1.getPoints());
-        System.out.println("Player 2 Points (Human): " + player2.getPoints());
-        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
-        System.out.println("\n");
 
         mainMenu(); // Takes player to main menu for next round
     }
@@ -221,50 +231,78 @@ public class Game {
         if (player1Answer.equals(player2Answer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
+            player1Result.add("Tie");
+            player2Result.add("Tie");
+            computerResult.add("N/A");
         } else if (player1Answer.equals("rock")){
             if (player2Answer.equals("paper")){
                 System.out.println("Player 2 wins!");
                 player2Points = player2Points + 1;
                 player2.setPoints(player2Points);
+                player1Result.add("Lose");
+                player2Result.add("Win");
+                computerResult.add("N/A");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("Lose");
+                computerResult.add("N/A");
             }
         } else if (player1Answer.equals("paper")) {
             if (player2Answer.equals("scissors")){
                 System.out.println("Player 2 wins!");
                 player2Points = player2Points + 1;
                 player2.setPoints(player2Points);
+                player1Result.add("Lose");
+                player2Result.add("Win");
+                computerResult.add("N/A");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("Lose");
+                computerResult.add("N/A");
             }
         } else if (player1Answer.equals("scissors")){
             if (player2Answer.equals("rock")){
                 System.out.println("Player 2 wins!");
                 player2Points = player2Points + 1;
                 player2.setPoints(player2Points);
+                player1Result.add("Lose");
+                player2Result.add("Win");
+                computerResult.add("N/A");
             } else {
                 System.out.println("Player 1 wins!");
                 player1Points = player1Points + 1;
                 player1.setPoints(player1Points);
+                player1Result.add("Win");
+                player2Result.add("Lose");
+                computerResult.add("N/A");
             }
         }
-
-        System.out.println("\n");
-        System.out.println("Number of ties: " + tiePoints);
-        System.out.println("Player 1 Points: " + player1.getPoints());
-        System.out.println("Player 2 Points (Human): " + player2.getPoints());
-        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
-        System.out.println("\n");
 
         mainMenu(); // Takes player to main menu for next round
     }
 
     public static void gameHistory() {
         System.out.println("This is the game History");
+
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+
+        System.out.println("Player 1 Results: " + player1Result);
+        System.out.println("Player 2 Results: " + player2Result);
+        System.out.println("Computer Results: " + computerResult);
+
+        System.out.println("Player 1 Moves: " + player1Moves);
+        System.out.println("Player 2 Moves: " + player2Moves);
+        System.out.println("Computer Moves: " + computerMoves);
+
         mainMenu();
     }
 
