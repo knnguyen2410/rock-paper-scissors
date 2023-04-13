@@ -1,0 +1,45 @@
+Round played on: 2023-04-13T18:13:14.862274
+
+Number of ties: 0
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 1
+
+Player 1 Results: [Lose]
+Player 2 Results: [ - ]
+Computer Results: [Win]
+
+Player 1 Moves: [rock]
+Player 2 Moves: [ - ]
+Computer Moves: [paper]
+
+Round played on: 2023-04-13T18:13:17.644206
+
+Number of ties: 0
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 2
+
+Player 1 Results: [Lose, Lose]
+Player 2 Results: [ - ,  - ]
+Computer Results: [Win, Win]
+
+Player 1 Moves: [rock, paper]
+Player 2 Moves: [ - ,  - ]
+Computer Moves: [paper, scissors]
+
+Round played on: 2023-04-13T18:13:46.056119
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie]
+Player 2 Results: [Tie]
+Computer Results: [ - ]
+
+Player 1 Moves: [paper]
+Player 2 Moves: [paper]
+Computer Moves: [ - ]
+

@@ -3,7 +3,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Game {
@@ -24,13 +23,10 @@ public class Game {
     static Computer computerPlayer = new Computer(computerResult, 0, computerMoves); // Create instance of Computer class
 
     // Grab all score points
-    static int tiePoints = 0; // Keep track of ties
     static int player1Points = player1.getPoints();
     static int player2Points = player2.getPoints();
     static int computerPoints = computerPlayer.getPoints();
-
-    // Keep track of the rounds, starting at 0
-    static int roundNumber = 0;
+    static int tiePoints = 0; // Keep track of ties
 
     /**
      * This is the main method where our game starts. It welcomes the user with a message, and then calls upon the mainMenu method.
@@ -138,7 +134,7 @@ public class Game {
         System.out.println("Player 1 chose: " + player1Answer);
         System.out.println("Player 2 chose: " + computerAnswer + " (Computer)");
 
-        movesTracker(player1Answer, "N/A", computerAnswer);
+        movesTracker(player1Answer, " - ", computerAnswer);
         determineWinnerVSComputer(player1Answer, computerAnswer); // Compares user and computer inputs to determine winner
     }
 
@@ -157,7 +153,7 @@ public class Game {
         System.out.println("Player 2 chose: " + player2Answer);
         goToMainMenu(player2Answer); // Goes to main menu if a player types quit
 
-        movesTracker(player1Answer, player2Answer, "N/A");
+        movesTracker(player1Answer, player2Answer, " - ");
         determineWinnerVSHuman(player1Answer, player2Answer); // Compares both inputs to determine winner
     }
 
@@ -168,6 +164,9 @@ public class Game {
      *     After each round, the player is taken back to the main menu.
      */
     public static void determineWinnerVSComputer(String player1Answer, String computerAnswer) throws IOException {
+        System.out.println("Round Number " + roundNumber + "\n");
+        roundNumber = roundNumber + 1;
+
         if (player1Answer.equals(computerAnswer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
@@ -224,10 +223,9 @@ public class Game {
             }
         }
 
-        roundNumber = roundNumber + 1;
-        writeFile(roundNumber, tiePoints, player1Points, player2Points, computerPoints,
-                player1Result, player2Result, computerResult,
-                player1Moves, player2Moves, computerMoves);
+        writeFile(tiePoints, player1Points, player2Points, computerPoints,
+                            player1Result, player2Result, computerResult,
+                            player1Moves, player2Moves, computerMoves);
         mainMenu(); // Takes player to main menu for next round
     }
 
@@ -238,6 +236,9 @@ public class Game {
      *     After each round, the player is taken back to the main menu.
      */
     public static void determineWinnerVSHuman(String player1Answer, String player2Answer) throws IOException {
+        System.out.println("Round Number " + roundNumber + "\n");
+        roundNumber = roundNumber + 1;
+
         if (player1Answer.equals(player2Answer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
@@ -294,10 +295,9 @@ public class Game {
             }
         }
 
-        roundNumber = roundNumber + 1;
-        writeFile(roundNumber, tiePoints, player1Points, player2Points, computerPoints,
-                                        player1Result, player2Result, computerResult,
-                                        player1Moves, player2Moves, computerMoves);
+        writeFile(tiePoints, player1Points, player2Points, computerPoints,
+                            player1Result, player2Result, computerResult,
+                            player1Moves, player2Moves, computerMoves);
         mainMenu(); // Takes player to main menu for next round
     }
 
@@ -314,51 +314,10 @@ public class Game {
     }
 
     /**
-     * The writeFile method takes in all the parameters that we want to track for each round of the game, and writes it into an output.txt file.
-     * We throw an IOException (an input/output exception) because then it accounts for the file not existing.
-     * @param roundNumber
-     * @param tiePoints
-     * @param player1Points
-     * @param player2Points
-     * @param computerPoints
-     * @param player1Result
-     * @param player2Result
-     * @param computerResult
-     * @param player1Moves
-     * @param player2Moves
-     * @param computerMoves
-     * @throws IOException
-     */
-    public static void writeFile(int roundNumber, int tiePoints, int player1Points, int player2Points, int computerPoints,
-                                 List<String> player1Result, List<String> player2Result, List<String> computerResult,
-                                 List<String> player1Moves, List<String> player2Moves, List<String> computerMoves
-                                 ) throws IOException {
-        Path pathToFile = Paths.get("GameHistory.txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.get(pathToFile.toUri()).toFile(), true));
-
-        writer.write("Round Number " + roundNumber + "\n" + "\n");
-
-        writer.write("Number of ties: " + tiePoints + "\n");
-        writer.write("Player 1 Points: " + player1Points + "\n");
-        writer.write("Player 2 Points (Human): " + player2Points + "\n");
-        writer.write("Player 2 Points (Computer): " + computerPoints + "\n" + "\n");
-
-        writer.write("Player 1 Results: " + player1Result + "\n");
-        writer.write("Player 2 Results: " + player2Result + "\n");
-        writer.write("Computer Results: " + computerResult + "\n" + "\n");
-
-        writer.write("Player 1 Moves: " + player1Moves + "\n");
-        writer.write("Player 2 Moves: " + player2Moves + "\n");
-        writer.write("Computer Moves: " + computerMoves + "\n" + "\n");
-
-        writer.close();
-    }
-
-    /**
      * The gameHistory method prints out the running history of the game, including points, round results, and move history.
      */
     public static void scores() throws IOException {
-        System.out.println("This is the game History");
+        System.out.println("These are the current scores.");
 
         System.out.println("Number of ties: " + tiePoints);
         System.out.println("Player 1 Points: " + player1Points);
@@ -374,6 +333,47 @@ public class Game {
         System.out.println("Computer Moves: " + computerMoves);
 
         mainMenu();
+    }
+
+    /**
+     * The writeFile method takes in all the parameters that we want to track for each round of the game, and writes it into an output.txt file.
+     * It then increments the game number counter by 1.
+     * We throw an IOException (an input/output exception) because then it accounts for the file not existing.
+     * @param tiePoints
+     * @param player1Points
+     * @param player2Points
+     * @param computerPoints
+     * @param player1Result
+     * @param player2Result
+     * @param computerResult
+     * @param player1Moves
+     * @param player2Moves
+     * @param computerMoves
+     * @throws IOException
+     */
+    public static void writeFile(int tiePoints, int player1Points, int player2Points, int computerPoints,
+                                 List<String> player1Result, List<String> player2Result, List<String> computerResult,
+                                 List<String> player1Moves, List<String> player2Moves, List<String> computerMoves
+                                 ) throws IOException {
+        Path pathToFile = Paths.get("GameHistory.txt");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.get(pathToFile.toUri()).toFile(), true));
+
+        writer.write("Round played on: " + java.time.LocalDateTime.now() + "\n" + "\n");
+
+        writer.write("Number of ties: " + tiePoints + "\n");
+        writer.write("Player 1 Points: " + player1Points + "\n");
+        writer.write("Player 2 Points (Human): " + player2Points + "\n");
+        writer.write("Player 2 Points (Computer): " + computerPoints + "\n" + "\n");
+
+        writer.write("Player 1 Results: " + player1Result + "\n");
+        writer.write("Player 2 Results: " + player2Result + "\n");
+        writer.write("Computer Results: " + computerResult + "\n" + "\n");
+
+        writer.write("Player 1 Moves: " + player1Moves + "\n");
+        writer.write("Player 2 Moves: " + player2Moves + "\n");
+        writer.write("Computer Moves: " + computerMoves + "\n" + "\n");
+
+        writer.close();
     }
 
     /**

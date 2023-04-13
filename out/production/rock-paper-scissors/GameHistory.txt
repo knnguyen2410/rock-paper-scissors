@@ -1,60 +1,30 @@
-Round Number 1
+Round played on: 2023-04-13T18:13:14.862274
 
-Number of ties: 1
-Player 1 Points: 0
-Player 2 Points (Human): 0
-Player 2 Points (Computer): 0
-
-Player 1 Results: [Tie]
-Player 2 Results: [Tie]
-Computer Results: [N/A]
-
-Player 1 Moves: [rock]
-Player 2 Moves: [rock]
-Computer Moves: [N/A]
-
-Round Number 1
-
-Number of ties: 1
-Player 1 Points: 0
-Player 2 Points (Human): 0
-Player 2 Points (Computer): 0
-
-Player 1 Results: [Tie]
-Player 2 Results: [N/A]
-Computer Results: [Tie]
-
-Player 1 Moves: [rock]
-Player 2 Moves: [N/A]
-Computer Moves: [rock]
-
-Round Number 2
-
-Number of ties: 1
+Number of ties: 0
 Player 1 Points: 0
 Player 2 Points (Human): 0
 Player 2 Points (Computer): 1
 
-Player 1 Results: [Tie, Lose]
-Player 2 Results: [N/A, N/A]
-Computer Results: [Tie, Win]
+Player 1 Results: [Lose]
+Player 2 Results: [ - ]
+Computer Results: [Win]
+
+Player 1 Moves: [rock]
+Player 2 Moves: [ - ]
+Computer Moves: [paper]
+
+Round played on: 2023-04-13T18:13:17.644206
+
+Number of ties: 0
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 2
+
+Player 1 Results: [Lose, Lose]
+Player 2 Results: [ - ,  - ]
+Computer Results: [Win, Win]
 
 Player 1 Moves: [rock, paper]
-Player 2 Moves: [N/A, N/A]
-Computer Moves: [rock, scissors]
-
-Round Number 3
-
-Number of ties: 2
-Player 1 Points: 0
-Player 2 Points (Human): 0
-Player 2 Points (Computer): 1
-
-Player 1 Results: [Tie, Lose, Tie]
-Player 2 Results: [N/A, N/A, N/A]
-Computer Results: [Tie, Win, Tie]
-
-Player 1 Moves: [rock, paper, scissors]
-Player 2 Moves: [N/A, N/A, N/A]
-Computer Moves: [rock, scissors, scissors]
+Player 2 Moves: [ - ,  - ]
+Computer Moves: [paper, scissors]
 
