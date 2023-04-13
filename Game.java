@@ -1,3 +1,6 @@
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,12 +43,22 @@ public class Game {
 
     /**
      * The getUserInput method uses a Scanner object to obtain the user's input and assign it to a String variable.
+     * The user's input is formatted so that the first letter in the string is capitalized, and the rest are lowercase.
+     * If the user's input is not a valid answer from the validAnswer list, the user is prompted to enter a different input.
      */
     public static void getUserInput(){
         Scanner userInput = new Scanner(System.in); // Create Scanner object
         System.out.println("Enter Your Answer: "); // Prompt user for input
+        String userAnswer = userInput.nextLine(); // Assign's user's input to a variable
+        userAnswer = userAnswer.substring(0,1).toUpperCase() + userAnswer.substring(1).toLowerCase(); // Formats user's input
 
-        String userAnswer = userInput.nextLine(); // Assigns user's input into a variable which we can manipulate later
+        List validAnswers = Arrays.asList("Rock", "Paper", "Scissors");
+
+        while (!validAnswers.contains(userAnswer)){ // Prompt user for different input if it's not a valid answer
+            System.out.println("Enter A Different Answer: ");
+            userAnswer = userInput.nextLine();
+            userAnswer = userAnswer.substring(0,1).toUpperCase() + userAnswer.substring(1).toLowerCase();
+        }
         System.out.println("Your Answer Was: " + userAnswer);
     }
 
