@@ -2,14 +2,17 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class Game {
+
     // Create empty array lists for each player's result at the end of each round
     static List<String> player1Result = new ArrayList<>(); // Initialize an empty moves list for player1
     static List<String> player2Result = new ArrayList<>(); // Initialize an empty moves list for player2
     static List<String> computerResult = new ArrayList<>(); // Initialize an empty moves list for computer
+
     // Create empty array lists for each player's moves
     static List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
     static List<String> player2Moves = new ArrayList<>(); // Initialize an empty moves list for player2
     static List<String> computerMoves = new ArrayList<>(); // Initialize an empty moves list for computer
+
     // Create instances of each possible player in this game (human player 1, human player 2, computer)
     static Human player1 = new Human(player1Result, 0, player1Moves);  // Create player 1 instance
     static Human player2 = new Human(player2Result, 0, player2Moves); // Create player 2 instance
@@ -26,15 +29,6 @@ public class Game {
         mainMenu(); // Takes user to main menu to start the game
     }
 
-    public static void statusTracker(){
-        System.out.println("\n");
-        System.out.println("Number of ties: " + tiePoints);
-        System.out.println("Player 1 Points: " + player1.getPoints());
-        System.out.println("Player 2 Points (Human): " + player2.getPoints());
-        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
-        System.out.println("\n");
-    }
-
     /**
      * The mainMenu method prints out the game's main menu text when the game is first started.
      * The format with line breaks is kept in the method body. This way, we can visualize how it will look to the player.
@@ -44,8 +38,6 @@ public class Game {
      * Depending on the user's input, a different method is called.
      */
     public static void mainMenu() {
-        statusTracker();
-
         System.out.println(
                         "MAIN MENU" + "\n" +
                         "=====" + "\n" +
@@ -133,6 +125,8 @@ public class Game {
 
         System.out.println("Player 1 chose: " + player1Answer);
         System.out.println("Player 2 chose: " + computerAnswer + " (Computer)");
+
+        movesTracker(player1Answer, "N/A", computerAnswer);
         determineWinnerVSComputer(player1Answer, computerAnswer); // Compares user and computer inputs to determine winner
     }
 
@@ -151,7 +145,18 @@ public class Game {
         System.out.println("Player 2 chose: " + player2Answer);
         goToMainMenu(player2Answer); // Goes to main menu if a player types quit
 
+        movesTracker(player1Answer, player2Answer, "N/A");
         determineWinnerVSHuman(player1Answer, player2Answer); // Compares both inputs to determine winner
+    }
+
+    public static void movesTracker(String player1Answer, String player2Answer, String computerAnswer){
+        player1Moves.add(player1Answer);
+        player2Moves.add(player2Answer);
+        computerMoves.add(computerAnswer);
+
+        System.out.println(player1Moves);
+        System.out.println(player2Moves);
+        System.out.println(computerMoves);
     }
 
     /**
@@ -195,6 +200,13 @@ public class Game {
                 player1.setPoints(player1Points);
             }
         }
+
+        System.out.println("\n");
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+        System.out.println("\n");
 
         mainMenu(); // Takes player to main menu for next round
     }
@@ -241,8 +253,16 @@ public class Game {
             }
         }
 
+        System.out.println("\n");
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+        System.out.println("\n");
+
         mainMenu(); // Takes player to main menu for next round
     }
+
     public static void gameHistory() {
         System.out.println("This is the game History");
         mainMenu();
