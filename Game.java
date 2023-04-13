@@ -2,8 +2,28 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class Game {
+    // Create empty array lists for each player's result at the end of each round
+    static List<String> player1Result = new ArrayList<>(); // Initialize an empty moves list for player1
+    static List<String> player2Result = new ArrayList<>(); // Initialize an empty moves list for player2
+    static List<String> computerResult = new ArrayList<>(); // Initialize an empty moves list for computer
+    // Create empty array lists for each player's moves
+    static List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
+    static List<String> player2Moves = new ArrayList<>(); // Initialize an empty moves list for player2
+    static List<String> computerMoves = new ArrayList<>(); // Initialize an empty moves list for computer
+    // Create instances of each possible player in this game (human player 1, human player 2, computer)
+    static Human player1 = new Human(player1Result, 0, player1Moves);  // Create player 1 instance
+    static Human player2 = new Human(player2Result, 0, player2Moves); // Create player 2 instance
+    static Computer computerPlayer = new Computer(computerResult, 0, computerMoves); // Create instance of Computer class
+
+    // Grab all score points
+    static int tiePoints = 0; // Keep track of ties
+    static int player1Points = player1.getPoints();
+    static int player2Points = player2.getPoints();
+    static int computerPoints = computerPlayer.getPoints();
+
     public static void main(String[] args) {
-        mainMenu();
+        System.out.println("Welcome to Rock, Paper, Scissors! \n"); // Welcome message
+        mainMenu(); // Takes user to main menu to start the game
     }
 
     /**
@@ -16,8 +36,6 @@ public class Game {
      */
     public static void mainMenu() {
         System.out.println(
-                "Welcome to Rock, Paper, Scissors! \n"
-                        + "\n" +
                         "MAIN MENU" + "\n" +
                         "=====" + "\n" +
                         "1. Type 'play' to play." + "\n" +
@@ -91,56 +109,20 @@ public class Game {
     }
 
     /**
-     *     The determineWinner method takes in two strings,
-     *     and uses if-else statements to determine the win condition of each round.
-     *     It prints out which player won.
-     *     After each round, the player is taken back to the main menu.
-     */
-    public static void determineWinner(String answer1, String answer2){
-        if (answer1.equals(answer2)){
-            System.out.println("It's a tie!");
-        } else if (answer1.equals("rock")){
-            if (answer2.equals("paper")){
-                System.out.println("Player 2 wins!");
-            } else {
-                System.out.println("Player 1 wins!");
-            }
-        } else if (answer1.equals("paper")) {
-            if (answer2.equals("scissors")){
-                System.out.println("Player 2 wins!");
-            } else {
-                System.out.println("Player 1 wins!");
-            }
-        } else if (answer1.equals("scissors")){
-            if (answer2.equals("rock")){
-                System.out.println("Player 2 wins!");
-            } else {
-                System.out.println("Player 1 wins!");
-            }
-        }
-
-        mainMenu(); // Returns to main menu after every round
-    }
-
-    /**
      * The playComputer method uses the results of the getPlayerAnswer and getComputerAnswer methods.
      * It takes the two Strings and passes them as arguments for the compareAnswers method.
      */
     public static void playComputer(){
         gameInstructions(); // Shows the player the game instructions first
 
-        List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
-        Human player1 = new Human("", 0, player1Moves);  // Create player 1 instance
         String player1Answer = player1.getManualAnswer(); // Get player 1's answer
         goToMainMenu(player1Answer);
 
-        List<String> computerMoves = new ArrayList<>(); // Initialize an empty moves list for computer
-        Computer computerPlayer = new Computer("", 0, computerMoves); // Create instance of Computer class
         String computerAnswer = computerPlayer.getRandomAnswer(); // This is the randomly-generated computer answer
 
         System.out.println("Player 1 chose: " + player1Answer);
         System.out.println("Player 2 chose: " + computerAnswer + " (Computer)");
-        determineWinner(player1Answer, computerAnswer); // Compares user and computer inputs to determine winner
+        determineWinnerVSComputer(player1Answer, computerAnswer); // Compares user and computer inputs to determine winner
     }
 
     /**
@@ -150,12 +132,6 @@ public class Game {
     public static void playHuman(){
         gameInstructions(); // Shows the player the game instructions first
 
-        List<String> player1Moves = new ArrayList<>(); // Initialize an empty moves list for player1
-        Human player1 = new Human("", 0, player1Moves);  // Create player 1 instance
-
-        List<String> player2Moves = new ArrayList<>(); // Initialize an empty moves list for player2
-        Human player2 = new Human("", 0, player2Moves); // Create player 2 instance
-
         String player1Answer = player1.getManualAnswer(); // Get player 1's answer
         System.out.println("Player 1 chose: " + player1Answer);
         goToMainMenu(player1Answer); // Goes to main menu if a player types quit
@@ -164,7 +140,111 @@ public class Game {
         System.out.println("Player 2 chose: " + player2Answer);
         goToMainMenu(player2Answer); // Goes to main menu if a player types quit
 
-        determineWinner(player1Answer, player2Answer); // Compares both inputs to determine winner
+        determineWinnerVSHuman(player1Answer, player2Answer); // Compares both inputs to determine winner
+    }
+
+    /**
+     *     The determineWinner method takes in two strings,
+     *     and uses if-else statements to determine the win condition of each round.
+     *     It prints out which player won, and adds 1 to the winner's point score.
+     *     After each round, the player is taken back to the main menu.
+     */
+    public static void determineWinnerVSComputer(String player1Answer, String computerAnswer){
+        if (player1Answer.equals(computerAnswer)){
+            System.out.println("It's a tie!");
+            tiePoints = tiePoints + 1;
+        } else if (player1Answer.equals("rock")){
+            if (computerAnswer.equals("paper")){
+                System.out.println("Player 2 wins!");
+                computerPoints = computerPoints + 1;
+                computerPlayer.setPoints(computerPoints);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        } else if (player1Answer.equals("paper")) {
+            if (computerAnswer.equals("scissors")){
+                System.out.println("Player 2 wins!");
+                computerPoints = computerPoints + 1;
+                computerPlayer.setPoints(computerPoints);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        } else if (player1Answer.equals("scissors")){
+            if (computerAnswer.equals("rock")){
+                System.out.println("Player 2 wins!");
+                computerPoints = computerPoints + 1;
+                computerPlayer.setPoints(computerPoints);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        }
+
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+
+        mainMenu(); // Takes player to main menu for next round
+    }
+
+    /**
+     *     The determineWinner method takes in two strings,
+     *     and uses if-else statements to determine the win condition of each round.
+     *     It prints out which player won, and adds 1 to the winner's point score.
+     *     After each round, the player is taken back to the main menu.
+     */
+    public static void determineWinnerVSHuman(String player1Answer, String player2Answer){
+        if (player1Answer.equals(player2Answer)){
+            System.out.println("It's a tie!");
+            tiePoints = tiePoints + 1;
+        } else if (player1Answer.equals("rock")){
+            if (player2Answer.equals("paper")){
+                System.out.println("Player 2 wins!");
+                player2Points = player2Points + 1;
+                player2.setPoints(player2Points);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        } else if (player1Answer.equals("paper")) {
+            if (player2Answer.equals("scissors")){
+                System.out.println("Player 2 wins!");
+                player2Points = player2Points + 1;
+                player2.setPoints(player2Points);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        } else if (player1Answer.equals("scissors")){
+            if (player2Answer.equals("rock")){
+                System.out.println("Player 2 wins!");
+                player2Points = player2Points + 1;
+                player2.setPoints(player2Points);
+            } else {
+                System.out.println("Player 1 wins!");
+                player1Points = player1Points + 1;
+                player1.setPoints(player1Points);
+            }
+        }
+
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+
+        mainMenu(); // Takes player to main menu for next round
+    }
+    public static void gameHistory() {
+        System.out.println("This is the game History");
+        mainMenu();
     }
 
     /**
@@ -176,9 +256,6 @@ public class Game {
             System.out.println("You chose quit. Go to the main menu.");
             mainMenu();
         }
-    }
-
-    public static void gameHistory() {
     }
 
     /**

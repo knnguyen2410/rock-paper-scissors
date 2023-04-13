@@ -4,24 +4,24 @@ import java.util.Random;
 public class Computer extends Player implements RandomAnswer{
 
     // Instance variables
-    private String state;
+    private List<String> results;
     private int points;
     private List<String> moves;
 
     // Create class constructor
-    public Computer(String state, int points, List<String> moves){
-        this.state = state;
+    public Computer(List<String> results, int points, List<String> moves){
+        this.results = results;
         this.points = points;
         this.moves = moves;
     }
 
     // Getters and Setters
-    public String getState() {
-        return state;
+    public List<String> getResults() {
+        return results;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setResults(List<String> results) {
+        this.results = results;
     }
 
     public int getPoints() {
@@ -42,7 +42,7 @@ public class Computer extends Player implements RandomAnswer{
 
     // Abstract methods that we must define from the abstract class
     @Override
-    public void stateTracker() {
+    public void resultsTracker() {
         System.out.println("winner or loser");
     }
 
