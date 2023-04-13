@@ -26,6 +26,15 @@ public class Game {
         mainMenu(); // Takes user to main menu to start the game
     }
 
+    public static void statusTracker(){
+        System.out.println("\n");
+        System.out.println("Number of ties: " + tiePoints);
+        System.out.println("Player 1 Points: " + player1.getPoints());
+        System.out.println("Player 2 Points (Human): " + player2.getPoints());
+        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
+        System.out.println("\n");
+    }
+
     /**
      * The mainMenu method prints out the game's main menu text when the game is first started.
      * The format with line breaks is kept in the method body. This way, we can visualize how it will look to the player.
@@ -35,6 +44,8 @@ public class Game {
      * Depending on the user's input, a different method is called.
      */
     public static void mainMenu() {
+        statusTracker();
+
         System.out.println(
                         "MAIN MENU" + "\n" +
                         "=====" + "\n" +
@@ -185,11 +196,6 @@ public class Game {
             }
         }
 
-        System.out.println("Number of ties: " + tiePoints);
-        System.out.println("Player 1 Points: " + player1.getPoints());
-        System.out.println("Player 2 Points (Human): " + player2.getPoints());
-        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
-
         mainMenu(); // Takes player to main menu for next round
     }
 
@@ -234,11 +240,6 @@ public class Game {
                 player1.setPoints(player1Points);
             }
         }
-
-        System.out.println("Number of ties: " + tiePoints);
-        System.out.println("Player 1 Points: " + player1.getPoints());
-        System.out.println("Player 2 Points (Human): " + player2.getPoints());
-        System.out.println("Player 2 Points (Computer): " + computerPlayer.getPoints());
 
         mainMenu(); // Takes player to main menu for next round
     }
