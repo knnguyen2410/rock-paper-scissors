@@ -1,7 +1,10 @@
+import java.util.Scanner;
+
 public class Game {
     public static void main(String[] args) {
         mainMenu();
         instructions();
+        getUserInput();
     }
 
     /**
@@ -31,5 +34,16 @@ public class Game {
                 "Type 'rock', 'paper', or 'scissors' to play." + "\n" +
                         "Type 'quit' to go back to the main menu." + "\n"
         );
+    }
+
+    /**
+     * The getUserInput method uses a Scanner object to obtain the user's input and assign it to a String variable.
+     */
+    public static void getUserInput(){
+        Scanner userInput = new Scanner(System.in); // Create Scanner object
+        System.out.println("Enter Your Answer: "); // Prompt user for input
+
+        String userAnswer = userInput.nextLine(); // Assigns user's input into a variable which we can manipulate later
+        System.out.println("Your Answer Was: " + userAnswer);
     }
 }
