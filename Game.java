@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -5,6 +6,7 @@ public class Game {
         mainMenu();
         instructions();
         getUserInput();
+        getComputerInput();
     }
 
     /**
@@ -45,5 +47,25 @@ public class Game {
 
         String userAnswer = userInput.nextLine(); // Assigns user's input into a variable which we can manipulate later
         System.out.println("Your Answer Was: " + userAnswer);
+    }
+
+    /**
+     * The getComputerInput method uses a random number generator which acts as the computer's input.
+     * The method generates a number from 0-2,
+     * and each number corresponds to a different rock/paper/scissors move for the computer.
+     */
+    public static void getComputerInput(){
+        Random randomInstance = new Random(); // Create a new instance of the random class
+        int randomNumber = randomInstance.nextInt(3); // Generates random integer from 0-2
+        String computerAnswer = "";
+        if (randomNumber == 0){ // Computer answer updates based on random number generated
+            computerAnswer = "Rock";
+        } else if (randomNumber == 1) {
+            computerAnswer = "Paper";
+        } else {
+            computerAnswer = "Scissors";
+        }
+        System.out.println(randomNumber);
+        System.out.println(computerAnswer);
     }
 }
