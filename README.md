@@ -125,7 +125,7 @@ Here is my Java Classes Diagram, which provides a high-level overview of the str
 **My biggest takeaway**: I feel that by the end of this product, I have a greater appreciation for the OOP principles of abstraction and polymorphism.
 
 
-**What I would do differently**: I would spend much more time fleshing out the structure of my program. I now know that when it comes to object-oriented programming, being able to understand where your code should go and where your methods are coming from is crucial. I believe that spending more time understanding the application at a high-level will make a huge different in saving time, and make refactoring code much smoother.
+**What I would do differently**: I would spend much more time fleshing out the structure of my program. I now know that when it comes to object-oriented programming, being able to understand where your code should go and where your methods are coming from is crucial. I believe that spending more time understanding the application at a high-level will make a huge difference in saving time, and make refactoring code much smoother.
 
 ---
 ## Credits
