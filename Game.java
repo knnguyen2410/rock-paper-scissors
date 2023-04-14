@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.time.format.DateTimeFormatter;
 
 public class Game {
 
@@ -164,9 +168,6 @@ public class Game {
      *     After each round, the player is taken back to the main menu.
      */
     public static void determineWinnerVSComputer(String player1Answer, String computerAnswer) throws IOException {
-        System.out.println("Round Number " + roundNumber + "\n");
-        roundNumber = roundNumber + 1;
-
         if (player1Answer.equals(computerAnswer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
@@ -236,9 +237,6 @@ public class Game {
      *     After each round, the player is taken back to the main menu.
      */
     public static void determineWinnerVSHuman(String player1Answer, String player2Answer) throws IOException {
-        System.out.println("Round Number " + roundNumber + "\n");
-        roundNumber = roundNumber + 1;
-
         if (player1Answer.equals(player2Answer)){
             System.out.println("It's a tie!");
             tiePoints = tiePoints + 1;
@@ -358,7 +356,8 @@ public class Game {
         Path pathToFile = Paths.get("GameHistory.txt");
         BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.get(pathToFile.toUri()).toFile(), true));
 
-        writer.write("Round played on: " + java.time.LocalDateTime.now() + "\n" + "\n");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        writer.write("Round played on: " + java.time.LocalDateTime.now().format(formatter) + "\n" + "\n");
 
         writer.write("Number of ties: " + tiePoints + "\n");
         writer.write("Player 1 Points: " + player1Points + "\n");
