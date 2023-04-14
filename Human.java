@@ -2,6 +2,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This Human class is a subclass of the abstract Player class, and implements the ManualAnswer interface.
+ * By creating a Human class, I can then create an instance of a human player,
+ * applying the Human class's relevant methods/getters and setters.
+ * This is especially useful, because I will need two instances of human players - for player1 and player2.
+ */
 public class Human extends Player implements ManualAnswer{
 
     // Instance variables
@@ -11,7 +17,7 @@ public class Human extends Player implements ManualAnswer{
 
     // Create class constructor
     public Human(List<String> results, int points, List<String> moves){
-        super();
+        super(); // super allows us to access the constructor and methods of the superclass/parent class Player
         this.results = results;
         this.points = points;
         this.moves = moves;

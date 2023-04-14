@@ -1,5 +1,8 @@
 import java.util.List;
 
+/**
+ * This is an abstract Player class that can be extended from for both Human and Computer subclasses.
+ */
 public abstract class Player { // Create abstract Player class
 
     // Instance variables

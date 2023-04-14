@@ -1,6 +1,13 @@
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This Computer class is a subclass of the abstract Player class, and implements the RandomAnswer interface.
+ * By creating a Computer class, I can then create an instance of a computer player,
+ * applying the Computer class's relevant methods/getters and setters.
+ * In this class, we populate the body of the getRandomAnswer method,
+ * and use its functionality to create a random answer for any Computer instance.
+ */
 public class Computer extends Player implements RandomAnswer{
 
     // Instance variables
@@ -10,7 +17,7 @@ public class Computer extends Player implements RandomAnswer{
 
     // Create class constructor
     public Computer(List<String> results, int points, List<String> moves){
-        super();
+        super(); // super allows us to access the constructor and methods of the superclass/parent class Player
         this.results = results;
         this.points = points;
         this.moves = moves;
