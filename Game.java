@@ -34,7 +34,6 @@ public class Game {
 
     /**
      * This is the main method where our game starts. It welcomes the user with a message, and then calls upon the mainMenu method.
-     * @param args
      */
     public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Rock, Paper, Scissors! \n"); // Welcome message
@@ -50,19 +49,20 @@ public class Game {
      * Depending on the user's input, a different method is called.
      */
     public static void mainMenu() throws IOException {
-        System.out.println(
-                        "MAIN MENU" + "\n" +
-                        "=====" + "\n" +
-                        "1. Type 'play' to play." + "\n" +
-                        "2. Type 'scores' to view the current scores." + "\n" +
-                        "3. Type 'quit' to stop playing." + "\n"
+        System.out.println("""
+                        MAIN MENU
+                        =====
+                        1. Type 'play' to play.
+                        2. Type 'scores' to view the current scores.
+                        3. Type 'quit' to stop playing.
+                        """
         );
 
         Scanner userInput = new Scanner(System.in); // Create Scanner object
         System.out.println("Enter Your Answer: "); // Prompt user for input
         String userAnswer = userInput.nextLine().toLowerCase(); // Formats user's input and assigns it to a variable
 
-        List validAnswers = Arrays.asList("play", "scores", "quit");
+        List<String> validAnswers = Arrays.asList("play", "scores", "quit");
 
         while (!validAnswers.contains(userAnswer)) { // Prompt user for different input if it's not a valid answer
             System.out.println("Enter A Different Answer: ");
@@ -96,7 +96,7 @@ public class Game {
         System.out.println("Player 2 is a: "); // Prompt user for input
         String userAnswer = userInput.nextLine().toLowerCase(); // Formats user's input and assigns it to a variable
 
-        List validAnswers = Arrays.asList("human", "computer");
+        List<String> validAnswers = Arrays.asList("human", "computer");
 
         while (!validAnswers.contains(userAnswer)) { // Prompt user for different input if it's not a valid answer
             System.out.println("Enter A Different Answer: ");
@@ -117,9 +117,10 @@ public class Game {
      * The gameInstructions method prints out the game's instructions text.
      */
     public static void gameInstructions(){
-        System.out.println(
-                "Type 'rock', 'paper', or 'scissors' to play." + "\n" +
-                "Type 'quit' to go back to the main menu." + "\n"
+        System.out.println("""
+                        Type 'rock', 'paper', or 'scissors' to play.
+                        Type 'quit' to go back to the main menu.
+                        """
         );
     }
 
@@ -301,9 +302,6 @@ public class Game {
 
     /**
      * The movesTracker method takes in the move strings, and adds each player's move to the array list of their moves.
-     * @param player1Answer
-     * @param player2Answer
-     * @param computerAnswer
      */
     public static void movesTracker(String player1Answer, String player2Answer, String computerAnswer){
         player1Moves.add(player1Answer);
@@ -337,17 +335,6 @@ public class Game {
      * The writeFile method takes in all the parameters that we want to track for each round of the game, and writes it into an output.txt file.
      * It then increments the game number counter by 1.
      * We throw an IOException (an input/output exception) because then it accounts for the file not existing.
-     * @param tiePoints
-     * @param player1Points
-     * @param player2Points
-     * @param computerPoints
-     * @param player1Result
-     * @param player2Result
-     * @param computerResult
-     * @param player1Moves
-     * @param player2Moves
-     * @param computerMoves
-     * @throws IOException
      */
     public static void writeFile(int tiePoints, int player1Points, int player2Points, int computerPoints,
                                  List<String> player1Result, List<String> player2Result, List<String> computerResult,
@@ -377,7 +364,6 @@ public class Game {
 
     /**
      * The goToMainMenu method calls on the mainMenu method if the string parameter is "quit".
-     * @param answer
      */
     public static void goToMainMenu(String answer) throws IOException {
         if (answer.equals("quit")) {
