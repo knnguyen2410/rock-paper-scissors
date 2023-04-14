@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 
 public class Game {
-
     // Create empty array lists for each player's result at the end of each round
     static List<String> player1Result = new ArrayList<>();
     static List<String> player2Result = new ArrayList<>();
@@ -132,7 +131,7 @@ public class Game {
         gameInstructions(); // Shows the player the game instructions first
 
         String player1Answer = player1.getManualAnswer(); // Get player 1's answer
-        goToMainMenu(player1Answer);
+        goToMainMenu(player1Answer); // Goes to main menu if a player types quit
 
         String computerAnswer = computerPlayer.getRandomAnswer(); // This is the randomly-generated computer answer
 
