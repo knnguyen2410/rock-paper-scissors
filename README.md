@@ -26,7 +26,7 @@ Since this application was built using 100% Java, and Java is a "write once, run
 
 #### Instructions:
 
-<img src=/Users/kimnguyen/Desktop/java-3-13/projects/rock-paper-scissors/img.png  width=500>
+![img.png](img.png)
 
 Image source: Wikipedia (https://en.wikipedia.org/wiki/Rock_paper_scissors)
 
@@ -118,9 +118,7 @@ Project requirements: https://git.generalassemb.ly/java-interapt-3-13-2023/java-
 
 Here is my Java Classes Diagram, which provides a high-level overview of the structure of my code.
 
-
-<img src=/Users/kimnguyen/Desktop/java-3-13/projects/rock-paper-scissors/out/production/rock-paper-scissors/rock-paper-scissors(diagram).png  width=500>
-
+![rock-paper-scissors(diagram).png](out%2Fproduction%2Frock-paper-scissors%2Frock-paper-scissors%28diagram%29.png)
 ---
 ## Reflection
 
