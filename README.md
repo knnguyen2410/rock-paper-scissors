@@ -96,7 +96,7 @@ Project requirements: https://git.generalassemb.ly/java-interapt-3-13-2023/java-
 #### Bonus Ideas Completed
 
 - [x] Use an Agile project management framework for your game.
-  - I used GitHub's built-in kanban boards for my project tracker: https://git.generalassemb.ly/knnguyen2410/rock-paper-scissors/projects/1 
+  - I used GitHub's built-in kanban boards for my project tracker: https://github.com/users/knnguyen2410/projects/1
 
 
 - [x] If the user enters `history`, the program should display previous game history (winner's name, game date, and more).
