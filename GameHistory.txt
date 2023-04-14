@@ -1,0 +1,135 @@
+Round played on: 04-13-2023 23:37:16
+
+Number of ties: 0
+Player 1 Points: 0
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Lose]
+Player 2 Results: [ - ]
+Computer Results: [Win]
+
+Player 1 Moves: [paper]
+Player 2 Moves: [ - ]
+Computer Moves: [scissors]
+
+Round played on: 04-13-2023 23:37:19
+
+Number of ties: 0
+Player 1 Points: 1
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Lose, Win]
+Player 2 Results: [ - ,  - ]
+Computer Results: [Win, Lose]
+
+Player 1 Moves: [paper, rock]
+Player 2 Moves: [ - ,  - ]
+Computer Moves: [scissors, scissors]
+
+Round played on: 04-13-2023 23:46:18
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie]
+Player 2 Results: [ - ]
+Computer Results: [Tie]
+
+Player 1 Moves: [rock]
+Player 2 Moves: [ - ]
+Computer Moves: [rock]
+
+Round played on: 04-13-2023 23:46:41
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose]
+Player 2 Results: [ - , Win]
+Computer Results: [Tie,  - ]
+
+Player 1 Moves: [rock, rock]
+Player 2 Moves: [ - , paper]
+Computer Moves: [rock,  - ]
+
+Round played on: 04-13-2023 23:47:57
+
+Number of ties: 0
+Player 1 Points: 0
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Lose]
+Player 2 Results: [Win]
+Computer Results: [ - ]
+
+Player 1 Moves: [rock]
+Player 2 Moves: [paper]
+Computer Moves: [ - ]
+
+Round played on: 04-13-2023 23:48:54
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie]
+Player 2 Results: [Tie]
+Computer Results: [ - ]
+
+Player 1 Moves: [paper]
+Player 2 Moves: [paper]
+Computer Moves: [ - ]
+
+Round played on: 04-13-2023 23:49:00
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose]
+Player 2 Results: [Tie, Win]
+Computer Results: [ - ,  - ]
+
+Player 1 Moves: [paper, rock]
+Player 2 Moves: [paper, paper]
+Computer Moves: [ - ,  - ]
+
+Round played on: 04-13-2023 23:49:07
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 2
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose, Lose]
+Player 2 Results: [Tie, Win,  - ]
+Computer Results: [ - ,  - , Win]
+
+Player 1 Moves: [paper, rock, rock]
+Player 2 Moves: [paper, paper,  - ]
+Computer Moves: [ - ,  - , paper]
+
+Round played on: 04-13-2023 23:49:38
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie]
+Player 2 Results: [ - ]
+Computer Results: [Tie]
+
+Player 1 Moves: [paper]
+Player 2 Moves: [ - ]
+Computer Moves: [paper]
+

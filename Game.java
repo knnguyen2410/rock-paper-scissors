@@ -42,7 +42,7 @@ public class Game {
      * @throws IOException - This is due to the writeFile method, and accounts for an input/output exception error if the GameHistory.txt file is not found.
      */
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome to Rock, Paper, Scissors! \n"); // Welcome message
+        System.out.println("Welcome to Rock, Paper, Scissors!"); // Welcome message
         mainMenu(); // Takes user to main menu to start the game
     }
 
@@ -57,6 +57,7 @@ public class Game {
      */
     public static void mainMenu() throws IOException {
         System.out.println("""
+                        
                         MAIN MENU
                         =====
                         1. Type 'play' to play.
@@ -84,7 +85,7 @@ public class Game {
             System.out.println("You chose scores.");
             scores(); // Shows player current game scores
         } else {
-            System.out.println("You chose quit. The game will end.");
+            System.out.println("You chose quit.");
             gameQuit(); // Terminates the program
         }
     }
@@ -98,7 +99,7 @@ public class Game {
      * @throws IOException - This is due to the writeFile method, and accounts for an input/output exception error if the GameHistory.txt file is not found.
      */
     public static void gameMode() throws IOException {
-        System.out.println("You are Player 1. Is Player 2 a Human or Computer?");
+        System.out.println("\n" + "You are Player 1. Is Player 2 a Human or Computer?");
 
         Scanner userInput = new Scanner(System.in); // Create Scanner object
         System.out.println("Player 2 is a: "); // Prompt user for input
@@ -126,9 +127,9 @@ public class Game {
      */
     public static void gameInstructions(){
         System.out.println("""
+                        
                         Type 'rock', 'paper', or 'scissors' to play.
-                        Type 'quit' to go back to the main menu.
-                        """
+                        Type 'quit' to go back to the main menu."""
         );
     }
 
@@ -200,14 +201,14 @@ public class Game {
         // Assigns status variables to corresponding instance values (whether player2 is Human or Computer)
         if (player2 instanceof Human){
             player2Answer = getHumanPlayerAnswer((Human) player2);
-            System.out.println("Player 2 chose: " + player2Answer);
+            System.out.println("Player 2 chose: " + player2Answer + "\n");
             movesTracker(player1Answer, player2Answer, " - ");
             player2Result = player2Tracker;
             player2Skip = computerTracker;
             player2Type = player2;
         } else {
             player2Answer = computerPlayer.getRandomAnswer(); // This is the randomly-generated computer answer
-            System.out.println("Player 2 chose: " + player2Answer + " (Computer)");
+            System.out.println("\n" + "Player 2 chose: " + player2Answer + " (Computer)" + "\n");
             player2Type = computerPlayer;
             movesTracker(player1Answer, " - ", player2Answer);
             player2Result = computerTracker;
@@ -296,7 +297,7 @@ public class Game {
      * @throws IOException - This is due to the writeFile method, and accounts for an input/output exception error if the GameHistory.txt file is not found.
      */
     public static void scores() throws IOException {
-        System.out.println("These are the current scores.");
+        System.out.println("\n" + "These are the current scores.");
 
         System.out.println("Number of ties: " + tiePoints);
         System.out.println("Player 1 Points: " + player1Points);
@@ -363,7 +364,7 @@ public class Game {
      */
     public static void goToMainMenu(String answer) throws IOException {
         if (answer.equals("quit")) {
-            System.out.println("You chose quit. Go to the main menu.");
+            System.out.println("\n" + "You chose quit. Go to the main menu.");
             mainMenu();
         }
     }
@@ -372,7 +373,7 @@ public class Game {
      * The gameQuit method exits the program by terminating the JVM with an exit code 0.
      */
     public static void gameQuit() {
-        System.out.println("Thanks for playing!");
+        System.out.println("\n" + "The game will end. Thanks for playing!");
         System.exit(0); // exit code 0 indicates successful program termination
     }
 }

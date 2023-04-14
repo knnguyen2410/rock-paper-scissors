@@ -52,7 +52,7 @@ public class Human extends Player implements ManualAnswer{
     public String getManualAnswer() {
 
         Scanner userInput = new Scanner(System.in); // Create Scanner object
-        System.out.println("Enter Your Answer: "); // Prompt user for input
+        System.out.println("\n" + "Enter Your Answer: "); // Prompt user for input
         String userAnswer = userInput.nextLine().toLowerCase().trim(); // Formats user's input and assigns it to variable
 
         List validAnswers = Arrays.asList("rock", "paper", "scissors", "quit");
