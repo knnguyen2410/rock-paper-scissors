@@ -216,10 +216,10 @@ public class Game {
         }
 
         // Checks for the win condition and updates player1 and player2 stats
-        if (player1Answer.equals(player2Answer)){
-            System.out.println("It's a tie!");
-            tiePoints = tiePoints + 1;
-            player1Tracker.add("Tie");
+        if (player1Answer.equals(player2Answer)){ // Compares player1 and player2 answers
+            System.out.println("It's a tie!"); // Declares result of the game or winner
+            tiePoints = tiePoints + 1; // Increases relevant point counter
+            player1Tracker.add("Tie"); // Adds game result for each player to their respective tracker
             player2Result.add("Tie");
             player2Skip.add(" - ");
         } else if (player1Answer.equals("rock")){
