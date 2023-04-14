@@ -10,6 +10,7 @@ public class Computer extends Player implements RandomAnswer{
 
     // Create class constructor
     public Computer(List<String> results, int points, List<String> moves){
+        super();
         this.results = results;
         this.points = points;
         this.moves = moves;

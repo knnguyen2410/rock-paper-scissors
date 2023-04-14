@@ -11,6 +11,7 @@ public class Human extends Player implements ManualAnswer{
 
     // Create class constructor
     public Human(List<String> results, int points, List<String> moves){
+        super();
         this.results = results;
         this.points = points;
         this.moves = moves;
