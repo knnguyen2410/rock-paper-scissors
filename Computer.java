@@ -41,26 +41,10 @@ public class Computer extends Player implements RandomAnswer{
         this.moves = moves;
     }
 
-    // Abstract methods that we must define from the abstract class
-    @Override
-    public void resultsTracker() {
-        System.out.println("winner or loser");
-    }
-
-    @Override
-    public void pointsTracker() {
-        System.out.println("how many points");
-    }
-
-    @Override
-    public void movesTracker() {
-        System.out.println("which moves");
-    }
-
     /**
      * The getRandomAnswer method uses a random number generator which acts as the computer's input.
      * The method generates a number from 0-2, and each number corresponds to a different rock/paper/scissors move for the computer.
-     * The resulting string is then returned.
+     * @return - returns an answer as a String which is determined randomly.
      */
     @Override
     public String getRandomAnswer() {
