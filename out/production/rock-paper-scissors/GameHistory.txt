@@ -1,0 +1,90 @@
+Round played on: 04-13-2023 23:32:48
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 0
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie]
+Player 2 Results: [Tie]
+Computer Results: [ - ]
+
+Player 1 Moves: [rock]
+Player 2 Moves: [rock]
+Computer Moves: [ - ]
+
+Round played on: 04-13-2023 23:32:54
+
+Number of ties: 1
+Player 1 Points: 0
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose]
+Player 2 Results: [Tie, Win]
+Computer Results: [ - ,  - ]
+
+Player 1 Moves: [rock, rock]
+Player 2 Moves: [rock, paper]
+Computer Moves: [ - ,  - ]
+
+Round played on: 04-13-2023 23:33:13
+
+Number of ties: 1
+Player 1 Points: 1
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose, Win]
+Player 2 Results: [Tie, Win, Lose]
+Computer Results: [ - ,  - ,  - ]
+
+Player 1 Moves: [rock, rock, rock]
+Player 2 Moves: [rock, paper, scissors]
+Computer Moves: [ - ,  - ,  - ]
+
+Round played on: 04-13-2023 23:33:24
+
+Number of ties: 1
+Player 1 Points: 2
+Player 2 Points (Human): 1
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose, Win, Win]
+Player 2 Results: [Tie, Win, Lose, Lose]
+Computer Results: [ - ,  - ,  - ,  - ]
+
+Player 1 Moves: [rock, rock, rock, paper]
+Player 2 Moves: [rock, paper, scissors, rock]
+Computer Moves: [ - ,  - ,  - ,  - ]
+
+Round played on: 04-13-2023 23:33:47
+
+Number of ties: 1
+Player 1 Points: 2
+Player 2 Points (Human): 2
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose, Win, Win, Lose]
+Player 2 Results: [Tie, Win, Lose, Lose, Win]
+Computer Results: [ - ,  - ,  - ,  - ,  - ]
+
+Player 1 Moves: [rock, rock, rock, paper, paper]
+Player 2 Moves: [rock, paper, scissors, rock, scissors]
+Computer Moves: [ - ,  - ,  - ,  - ,  - ]
+
+Round played on: 04-13-2023 23:33:57
+
+Number of ties: 1
+Player 1 Points: 3
+Player 2 Points (Human): 2
+Player 2 Points (Computer): 0
+
+Player 1 Results: [Tie, Lose, Win, Win, Lose, Win]
+Player 2 Results: [Tie, Win, Lose, Lose, Win, Lose]
+Computer Results: [ - ,  - ,  - ,  - ,  - ,  - ]
+
+Player 1 Moves: [rock, rock, rock, paper, paper, scissors]
+Player 2 Moves: [rock, paper, scissors, rock, scissors, paper]
+Computer Moves: [ - ,  - ,  - ,  - ,  - ,  - ]
+

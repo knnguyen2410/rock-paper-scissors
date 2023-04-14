@@ -200,7 +200,7 @@ public class Game {
         // Assigns status variables to corresponding instance values (whether player2 is Human or Computer)
         if (player2 instanceof Human){
             player2Answer = getHumanPlayerAnswer((Human) player2);
-            System.out.println("Player 2 chose: " + player1Answer);
+            System.out.println("Player 2 chose: " + player2Answer);
             movesTracker(player1Answer, player2Answer, " - ");
             player2Result = player2Tracker;
             player2Skip = computerTracker;
