@@ -1,5 +1,5 @@
 
-# Rock, Paper, Scissors
+# Rock Paper Scissors
 
 ### A Java OOP Mini-Project
 * <a href="#about-the-game">About the Game</a>
